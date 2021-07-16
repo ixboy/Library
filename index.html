@@ -8,6 +8,40 @@
     <title>Library</title>
 </head>
 <body>
-    
+<div class="container">
+    <h1>My Library</h1>
+    <div class="center-content">
+      <button  id="newBook-btn">New Book </button>
+    </div>
+
+    <div id="addBookModal">
+        <form id="form">
+            <input class='title' type="text" name="title" placeholder="Title" required maxlength="50" /> <br>
+            <input class='author' type="text" name="author" placeholder="Author" required maxlength="50" /> <br>
+            <input class='pages' type="number" name="pages" placeholder="Pages" required max="50000" /> <br>
+            <select name="readStatus"> 
+                <option value=true>Read</option>
+                <option value=false>Not read yet</option>
+        </select>
+            <input id="addBook-btn" type="submit" value="Add Book"/>
+        </form>
+
+        <table id='table' class="book-table">
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Pages</th>
+            <th>Read</th>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+    </div>
+  </div>
+    <script src="script.js"></script>
 </body>
 </html>
