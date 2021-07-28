@@ -8,6 +8,16 @@ function clearOut() {
   document.querySelector('.pages').value = '';
 }
 
+function showAlert(message, className) {
+    const div = document.createElement('div');
+    div.className = `alert alert-${className} p-1 mb-1`;
+    div.appendChild(document.createTextNode(message));
+    const container = document.querySelector('.container');
+    const formDiv = document.querySelector('#form-div');
+    container.insertBefore(div, formDiv);
+    setTimeout(() => document.querySelector('.alert').remove(), 2000)
+}
+
 function showBooks(books) {
   const row = document.createElement('tr');
   books.forEach((book) => {
@@ -37,11 +47,12 @@ function addBookToLibrary() {
   const bookread = document.querySelector('.read').value;
 
   if (bookTitle === '' || bookAuthor === '' || bookPages === '') {
-    alert('form must be filled out');
+    showAlert('Please fill in all fields', 'danger');
   } else {
     const newBook = new Book(bookTitle, bookAuthor, bookPages, bookread);
     myLibrary.push(newBook);
     showBooks(myLibrary);
+    showAlert('Book Added', 'success');
   }
 }
 
@@ -54,7 +65,8 @@ function deleteBook(e) {
   e.preventDefault();
   if (e.target.classList.contains('delete')) {
     const parent = e.target.parentElement.parentElement;
-    bookList.removeChild(parent);
+    parent.remove();
+    showAlert('Book Removed', 'success');
   }
 }
 
