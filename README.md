@@ -16,17 +16,17 @@
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://ixboy.github.io/Library/)
 
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+Run it locally by following the steps bellow...
 
 ### Setup and Install
 
 - Clone this repository using the link above (click on the 'code' button)
 - Open a terminal and `cd` to the cloned repository
-- Open a live server in your preferred browser
+- Open your code editor and use the live server to view it in your preferred browser
 
 ### Usage
 
