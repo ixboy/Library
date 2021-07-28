@@ -9,13 +9,13 @@ function clearOut() {
 }
 
 function showAlert(message, className) {
-    const div = document.createElement('div');
-    div.className = `alert alert-${className} p-1 mb-1`;
-    div.appendChild(document.createTextNode(message));
-    const container = document.querySelector('.container');
-    const formDiv = document.querySelector('#form-div');
-    container.insertBefore(div, formDiv);
-    setTimeout(() => document.querySelector('.alert').remove(), 2000)
+  const div = document.createElement('div');
+  div.className = `alert alert-${className} p-1 mb-1`;
+  div.appendChild(document.createTextNode(message));
+  const container = document.querySelector('.container');
+  const formDiv = document.querySelector('#form-div');
+  container.insertBefore(div, formDiv);
+  setTimeout(() => document.querySelector('.alert').remove(), 2000);
 }
 
 function showBooks(books) {
@@ -26,7 +26,7 @@ function showBooks(books) {
       <td>${book.author}</td>
       <td>${book.pages}</td>
       <td>${book.read}</td>
-      <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+      <td class="p-1"><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
     `;
   });
   bookList.appendChild(row);
