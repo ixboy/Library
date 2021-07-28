@@ -1,30 +1,61 @@
-const newBookBtn = document.querySelector('#newBook-btn');
-const bookForm = document.querySelector('#form');
 const addBookBtn = document.querySelector('#addBook-btn');
-newBookBtn.onclick = () => {
-  bookForm.style.display = 'block';
-};
-
+const bookList = document.querySelector('#book-list');
 const myLibrary = [];
 
-function Book(title, author, pages) {
+function clearOut() {
+  document.querySelector('.title').value = '';
+  document.querySelector('.author').value = '';
+  document.querySelector('.pages').value = '';
+}
+
+function showBooks(books) {
+  const row = document.createElement('tr');
+  books.forEach((book) => {
+    row.innerHTML = `
+      <td>${book.title}</td>
+      <td>${book.author}</td>
+      <td>${book.pages}</td>
+      <td>${book.read}</td>
+      <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+    `;
+  });
+  bookList.appendChild(row);
+  clearOut();
+}
+
+function Book(title, author, pages, read) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  // this.read = read;
+  this.read = read;
 }
 
 function addBookToLibrary() {
   const bookTitle = document.querySelector('.title').value;
   const bookAuthor = document.querySelector('.author').value;
   const bookPages = document.querySelector('.pages').value;
+  const bookread = document.querySelector('.read').value;
 
-  const newBook = new Book(bookTitle, bookAuthor, bookPages);
-
-  myLibrary.push(newBook);
+  if (bookTitle === '' || bookAuthor === '' || bookPages === '') {
+    alert('form must be filled out');
+  } else {
+    const newBook = new Book(bookTitle, bookAuthor, bookPages, bookread);
+    myLibrary.push(newBook);
+    showBooks(myLibrary);
+  }
 }
 
-addBookBtn.onclick = () => {
-  bookForm.style.display = 'none';
+addBookBtn.onclick = (e) => {
+  e.preventDefault();
   addBookToLibrary();
 };
+
+function deleteBook(e) {
+  e.preventDefault();
+  if (e.target.classList.contains('delete')) {
+    const parent = e.target.parentElement.parentElement;
+    bookList.removeChild(parent);
+  }
+}
+
+bookList.addEventListener('click', deleteBook);
