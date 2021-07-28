@@ -15,21 +15,21 @@
 
     <div id="form-div">
         <form class="form form-group">
-            <input class='title form-control mb-1' type="text" name="title" placeholder="Title" required maxlength="50" />
-            <input class='author form-control mb-1' type="text" name="author" placeholder="Author" required maxlength="50" />
+            <input class='title form-control mb-1 p-1' type="text" name="title" placeholder="Title" required maxlength="50" />
+            <input class='author form-control mb-1 p-1' type="text" name="author" placeholder="Author" required maxlength="50" />
             <div class="row">
               <div class="col">
-                <input class='pages form-control' type="number" name="pages" placeholder="Pages" required max="50000" />
+                <input class='pages form-control p-1' type="number" name="pages" placeholder="Pages" required max="50000" />
               </div>
               <div class="col">
-                <select class='form-control read'>
+                <select class='form-control read p-1'>
                   <option value="" disabled selected hidden> Did you read this book?</option>
                   <option value="Yes">YES</option>
                   <option value="No">Not yet</option> 
                 </select>
               </div>
             </div>
-            <input class="btn btn-outline-primary form-control mt-1" id="addBook-btn" type="submit" value="Add Book"/>
+            <input class="btn btn-outline-primary form-control mt-1 p-1" id="addBook-btn" type="submit" value="Add Book"/>
         </form>
         
 
@@ -42,7 +42,7 @@
               <th></th>
             </tr>
           </thead>
-          <tbody id="book-list"></tbody>
+          <tbody id="book-list" class="p-1"></tbody>
         </table>
     </div>
   </div>
