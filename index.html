@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://bootswatch.com/5/quartz/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/0e87feccf7.js" crossorigin="anonymous"></script>
+    <title>Library</title>
+</head>
+<body>
+<div class="container mt-2 text-center">
+  <h1 class="display-4 ">
+    <i class="fas fa-book-open text-primary"></i> My<span class="text-primary">Book</span>List</h1>
+
+    <div id="form-div">
+        <form class="form form-group">
+            <input class='title form-control mb-1 p-1' type="text" name="title" placeholder="Title" required maxlength="50" />
+            <input class='author form-control mb-1 p-1' type="text" name="author" placeholder="Author" required maxlength="50" />
+            <div class="row">
+              <div class="col">
+                <input class='pages form-control p-1' type="number" name="pages" placeholder="Pages" required max="50000" />
+              </div>
+              <div class="col">
+                <select class='form-control read p-1'>
+                  <option value="" disabled selected hidden> Did you read this book?</option>
+                  <option value="Yes">YES</option>
+                  <option value="No">Not yet</option> 
+                </select>
+              </div>
+            </div>
+            <input class="btn btn-outline-primary form-control mt-1 p-1" id="addBook-btn" type="submit" value="Add Book"/>
+        </form>
+        
+
+        <table id='table' class="table mt-2">
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Pages</th>
+              <th>Read?</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="book-list" class="p-1"></tbody>
+        </table>
+    </div>
+  </div>
+    <script src="script.js"></script>
+</body>
+</html>
